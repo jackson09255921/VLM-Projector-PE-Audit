@@ -4,9 +4,9 @@ Clean reproducibility artifact for an ICASSP 2027 submission studying the
 additional spatial positional encoding (PE) used at the VILA-HD-8B multimodal
 projector.
 
-> **Release status:** private pre-release pending author review. This repository
-> contains no model checkpoints, licensed datasets, raw benchmark generations,
-> credentials, or private training logs.
+> **Release status:** public ICASSP 2027 reproducibility artifact. This
+> repository contains no model checkpoints, licensed datasets, raw benchmark
+> generations, credentials, or private training logs.
 
 - Manuscript: [`paper/icassp2027.pdf`](paper/icassp2027.pdf)
 - Standalone PE implementation:
