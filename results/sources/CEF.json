@@ -1,0 +1,658 @@
+{
+  "schema_version": 1,
+  "generated_utc": "2026-09-05T07:44:32.942622+00:00",
+  "aggregation": "mean raw percentage scores, then round for display",
+  "scope": "C/E/F, matched 312-step horizons, deterministic three-seed ten-benchmark evaluation",
+  "methods": {
+    "C": {
+      "per_seed": {
+        "42": {
+          "ocr5_source": "runs/eval/final-fairness-v1/C-matched-seed42",
+          "non_ocr5_source": "runs/eval/final-fairness-v1/C-matched-seed42",
+          "scores_percent": {
+            "ChartQA": 85.56,
+            "DocVQA": 90.38377657953207,
+            "TextVQA": 77.69000000000041,
+            "InfoVQA": 59.64159848076529,
+            "OCRBench": 70.19999999999999,
+            "MathVista": 65.10000000000001,
+            "GQA": 66.82302432819208,
+            "POPE": 88.23333333333333,
+            "V*Bench": 72.25130890052355,
+            "MMBench": 92.91752341786612
+          },
+          "ten_benchmark_mean_percent": 76.88005650402128
+        },
+        "1234": {
+          "ocr5_source": "runs/eval/final-fairness-v1/C-matched-seed1234",
+          "non_ocr5_source": "runs/eval/supplemental-completeness-v1/C-seed1234",
+          "scores_percent": {
+            "ChartQA": 85.92,
+            "DocVQA": 89.79191298409721,
+            "TextVQA": 77.96200000000039,
+            "InfoVQA": 59.232026822398,
+            "OCRBench": 70.8,
+            "MathVista": 64.2,
+            "GQA": 67.08538718397202,
+            "POPE": 88.73333333333333,
+            "V*Bench": 71.20418848167539,
+            "MMBench": 92.78044322595385
+          },
+          "ten_benchmark_mean_percent": 76.77092920314303
+        },
+        "2024": {
+          "ocr5_source": "runs/eval/final-fairness-v1/C-matched-seed2024",
+          "non_ocr5_source": "runs/eval/supplemental-completeness-v1/C-seed2024",
+          "scores_percent": {
+            "ChartQA": 85.64,
+            "DocVQA": 90.39476526714516,
+            "TextVQA": 77.76600000000042,
+            "InfoVQA": 58.66144815861586,
+            "OCRBench": 70.8,
+            "MathVista": 65.4,
+            "GQA": 67.1012879631102,
+            "POPE": 88.33333333333333,
+            "V*Bench": 73.29842931937172,
+            "MMBench": 92.87183002056203
+          },
+          "ten_benchmark_mean_percent": 77.02670940621388
+        }
+      },
+      "mean_percent": 76.89256503779274,
+      "sample_sd_percent": 0.12834806439356863
+    },
+    "E": {
+      "per_seed": {
+        "42": {
+          "ocr5_source": "runs/eval/rigorous-20260719/E-seed42-25pct",
+          "non_ocr5_source": "runs/eval/final-fairness-v1/E-seed42",
+          "scores_percent": {
+            "ChartQA": 85.88,
+            "DocVQA": 90.61389641117124,
+            "TextVQA": 77.24600000000036,
+            "InfoVQA": 60.0672108416458,
+            "OCRBench": 70.6,
+            "MathVista": 64.5,
+            "GQA": 66.68786770551756,
+            "POPE": 88.4,
+            "V*Bench": 73.82198952879581,
+            "MMBench": 92.73474982864977
+          },
+          "ten_benchmark_mean_percent": 77.05517143157806
+        },
+        "1234": {
+          "ocr5_source": "runs/eval/rigorous-20260719/E-seed1234-25pct",
+          "non_ocr5_source": "runs/eval/supplemental-completeness-v1/E-seed1234",
+          "scores_percent": {
+            "ChartQA": 85.92,
+            "DocVQA": 90.14485814904009,
+            "TextVQA": 77.9420000000004,
+            "InfoVQA": 60.73785782849792,
+            "OCRBench": 69.89999999999999,
+            "MathVista": 64.8,
+            "GQA": 66.85482588646843,
+            "POPE": 88.56666666666668,
+            "V*Bench": 70.15706806282722,
+            "MMBench": 92.52912954078135
+          },
+          "ten_benchmark_mean_percent": 76.75524061342821
+        },
+        "2024": {
+          "ocr5_source": "runs/eval/rigorous-20260719/E-seed2024-25pct",
+          "non_ocr5_source": "runs/eval/supplemental-completeness-v1/E-seed2024",
+          "scores_percent": {
+            "ChartQA": 86.08,
+            "DocVQA": 90.23852337724301,
+            "TextVQA": 77.73200000000044,
+            "InfoVQA": 58.38319775462547,
+            "OCRBench": 69.89999999999999,
+            "MathVista": 65.3,
+            "GQA": 67.22054380664653,
+            "POPE": 88.86666666666667,
+            "V*Bench": 72.77486910994764,
+            "MMBench": 92.43774274617319
+          },
+          "ten_benchmark_mean_percent": 76.8933543461303
+        }
+      },
+      "mean_percent": 76.90125546371219,
+      "sample_sd_percent": 0.15012143305767917
+    },
+    "F": {
+      "per_seed": {
+        "42": {
+          "ocr5_source": "runs/eval/rigorous-20260719/F-seed42-25pct",
+          "non_ocr5_source": "runs/eval/final-fairness-v1/F-seed42",
+          "scores_percent": {
+            "ChartQA": 85.32,
+            "DocVQA": 90.36908658834744,
+            "TextVQA": 77.81400000000039,
+            "InfoVQA": 60.41446105112062,
+            "OCRBench": 71.7,
+            "MathVista": 64.0,
+            "GQA": 66.90252822388297,
+            "POPE": 88.5,
+            "V*Bench": 72.77486910994764,
+            "MMBench": 92.73474982864977
+          },
+          "ten_benchmark_mean_percent": 77.05296948019489
+        },
+        "1234": {
+          "ocr5_source": "runs/eval/rigorous-20260719/F-seed1234-25pct",
+          "non_ocr5_source": "runs/eval/supplemental-completeness-v1/F-seed1234",
+          "scores_percent": {
+            "ChartQA": 86.4,
+            "DocVQA": 90.42195333095164,
+            "TextVQA": 78.0080000000004,
+            "InfoVQA": 60.41458434644918,
+            "OCRBench": 70.7,
+            "MathVista": 64.0,
+            "GQA": 67.1012879631102,
+            "POPE": 88.5,
+            "V*Bench": 72.25130890052355,
+            "MMBench": 92.89467671921408
+          },
+          "ten_benchmark_mean_percent": 77.06918112602492
+        },
+        "2024": {
+          "ocr5_source": "runs/eval/rigorous-20260719/F-seed2024-25pct",
+          "non_ocr5_source": "runs/eval/supplemental-completeness-v1/F-seed2024",
+          "scores_percent": {
+            "ChartQA": 86.92,
+            "DocVQA": 90.15685758749802,
+            "TextVQA": 77.86600000000038,
+            "InfoVQA": 59.26170406726558,
+            "OCRBench": 70.39999999999999,
+            "MathVista": 65.2,
+            "GQA": 67.15694069009382,
+            "POPE": 88.33333333333333,
+            "V*Bench": 71.20418848167539,
+            "MMBench": 92.87183002056203
+          },
+          "ten_benchmark_mean_percent": 76.93708541804286
+        }
+      },
+      "mean_percent": 77.01974534142089,
+      "sample_sd_percent": 0.07204305354977722
+    }
+  },
+  "paired_differences": {
+    "E_minus_C": {
+      "per_seed_pp": [
+        0.17511492755677693,
+        -0.015688589714812906,
+        -0.13335506008358777
+      ],
+      "mean_paired_pp": 0.008690425919458752,
+      "sample_sd_pp": 0.1556733298326458
+    },
+    "F_minus_C": {
+      "per_seed_pp": [
+        0.17291297617360613,
+        0.29825192288188873,
+        -0.08962398817102724
+      ],
+      "mean_paired_pp": 0.12718030362815588,
+      "sample_sd_pp": 0.1979407451673213
+    },
+    "E_minus_F": {
+      "per_seed_pp": [
+        0.002201951383170808,
+        -0.31394051259670164,
+        -0.04373107191256054
+      ],
+      "mean_paired_pp": -0.11848987770869712,
+      "sample_sd_pp": 0.1708161984879203
+    }
+  },
+  "per_benchmark": {
+    "C": {
+      "ChartQA": {
+        "mean_percent": 85.70666666666666,
+        "sample_sd_percent": 0.18903262505010432,
+        "per_seed_percent": [
+          85.56,
+          85.92,
+          85.64
+        ]
+      },
+      "DocVQA": {
+        "mean_percent": 90.19015161025816,
+        "sample_sd_percent": 0.34492852931988294,
+        "per_seed_percent": [
+          90.38377657953207,
+          89.79191298409721,
+          90.39476526714516
+        ]
+      },
+      "TextVQA": {
+        "mean_percent": 77.8060000000004,
+        "sample_sd_percent": 0.14034243834277688,
+        "per_seed_percent": [
+          77.69000000000041,
+          77.96200000000039,
+          77.76600000000042
+        ]
+      },
+      "InfoVQA": {
+        "mean_percent": 59.17835782059305,
+        "sample_sd_percent": 0.4922742475678178,
+        "per_seed_percent": [
+          59.64159848076529,
+          59.232026822398,
+          58.66144815861586
+        ]
+      },
+      "OCRBench": {
+        "mean_percent": 70.6,
+        "sample_sd_percent": 0.3464101615137804,
+        "per_seed_percent": [
+          70.19999999999999,
+          70.8,
+          70.8
+        ]
+      },
+      "MathVista": {
+        "mean_percent": 64.9,
+        "sample_sd_percent": 0.6244997998398418,
+        "per_seed_percent": [
+          65.10000000000001,
+          64.2,
+          65.4
+        ]
+      },
+      "GQA": {
+        "mean_percent": 67.00323315842476,
+        "sample_sd_percent": 0.15626780079298233,
+        "per_seed_percent": [
+          66.82302432819208,
+          67.08538718397202,
+          67.1012879631102
+        ]
+      },
+      "POPE": {
+        "mean_percent": 88.43333333333334,
+        "sample_sd_percent": 0.26457513110646014,
+        "per_seed_percent": [
+          88.23333333333333,
+          88.73333333333333,
+          88.33333333333333
+        ]
+      },
+      "V*Bench": {
+        "mean_percent": 72.25130890052355,
+        "sample_sd_percent": 1.0471204188481664,
+        "per_seed_percent": [
+          72.25130890052355,
+          71.20418848167539,
+          73.29842931937172
+        ]
+      },
+      "MMBench": {
+        "mean_percent": 92.85659888812734,
+        "sample_sd_percent": 0.06979781730189731,
+        "per_seed_percent": [
+          92.91752341786612,
+          92.78044322595385,
+          92.87183002056203
+        ]
+      }
+    },
+    "E": {
+      "ChartQA": {
+        "mean_percent": 85.96,
+        "sample_sd_percent": 0.10583005244258405,
+        "per_seed_percent": [
+          85.88,
+          85.92,
+          86.08
+        ]
+      },
+      "DocVQA": {
+        "mean_percent": 90.33242597915144,
+        "sample_sd_percent": 0.24821864720369582,
+        "per_seed_percent": [
+          90.61389641117124,
+          90.14485814904009,
+          90.23852337724301
+        ]
+      },
+      "TextVQA": {
+        "mean_percent": 77.6400000000004,
+        "sample_sd_percent": 0.3570042016559738,
+        "per_seed_percent": [
+          77.24600000000036,
+          77.9420000000004,
+          77.73200000000044
+        ]
+      },
+      "InfoVQA": {
+        "mean_percent": 59.72942214158974,
+        "sample_sd_percent": 1.2131289792459963,
+        "per_seed_percent": [
+          60.0672108416458,
+          60.73785782849792,
+          58.38319775462547
+        ]
+      },
+      "OCRBench": {
+        "mean_percent": 70.13333333333333,
+        "sample_sd_percent": 0.40414518843273967,
+        "per_seed_percent": [
+          70.6,
+          69.89999999999999,
+          69.89999999999999
+        ]
+      },
+      "MathVista": {
+        "mean_percent": 64.86666666666666,
+        "sample_sd_percent": 0.4041451884327368,
+        "per_seed_percent": [
+          64.5,
+          64.8,
+          65.3
+        ]
+      },
+      "GQA": {
+        "mean_percent": 66.92107913287751,
+        "sample_sd_percent": 0.2724483009183515,
+        "per_seed_percent": [
+          66.68786770551756,
+          66.85482588646843,
+          67.22054380664653
+        ]
+      },
+      "POPE": {
+        "mean_percent": 88.61111111111113,
+        "sample_sd_percent": 0.23648662948658683,
+        "per_seed_percent": [
+          88.4,
+          88.56666666666668,
+          88.86666666666667
+        ]
+      },
+      "V*Bench": {
+        "mean_percent": 72.25130890052355,
+        "sample_sd_percent": 1.8877231808712005,
+        "per_seed_percent": [
+          73.82198952879581,
+          70.15706806282722,
+          72.77486910994764
+        ]
+      },
+      "MMBench": {
+        "mean_percent": 92.56720737186811,
+        "sample_sd_percent": 0.15212081604933653,
+        "per_seed_percent": [
+          92.73474982864977,
+          92.52912954078135,
+          92.43774274617319
+        ]
+      }
+    },
+    "F": {
+      "ChartQA": {
+        "mean_percent": 86.21333333333332,
+        "sample_sd_percent": 0.8161699169494926,
+        "per_seed_percent": [
+          85.32,
+          86.4,
+          86.92
+        ]
+      },
+      "DocVQA": {
+        "mean_percent": 90.31596583559904,
+        "sample_sd_percent": 0.14030430883876727,
+        "per_seed_percent": [
+          90.36908658834744,
+          90.42195333095164,
+          90.15685758749802
+        ]
+      },
+      "TextVQA": {
+        "mean_percent": 77.8960000000004,
+        "sample_sd_percent": 0.10041912168506811,
+        "per_seed_percent": [
+          77.81400000000039,
+          78.0080000000004,
+          77.86600000000038
+        ]
+      },
+      "InfoVQA": {
+        "mean_percent": 60.03024982161179,
+        "sample_sd_percent": 0.6655801500894724,
+        "per_seed_percent": [
+          60.41446105112062,
+          60.41458434644918,
+          59.26170406726558
+        ]
+      },
+      "OCRBench": {
+        "mean_percent": 70.93333333333334,
+        "sample_sd_percent": 0.680685928555409,
+        "per_seed_percent": [
+          71.7,
+          70.7,
+          70.39999999999999
+        ]
+      },
+      "MathVista": {
+        "mean_percent": 64.39999999999999,
+        "sample_sd_percent": 0.6928203230275526,
+        "per_seed_percent": [
+          64.0,
+          64.0,
+          65.2
+        ]
+      },
+      "GQA": {
+        "mean_percent": 67.05358562569566,
+        "sample_sd_percent": 0.13374625410447766,
+        "per_seed_percent": [
+          66.90252822388297,
+          67.1012879631102,
+          67.15694069009382
+        ]
+      },
+      "POPE": {
+        "mean_percent": 88.44444444444444,
+        "sample_sd_percent": 0.09622504486494037,
+        "per_seed_percent": [
+          88.5,
+          88.5,
+          88.33333333333333
+        ]
+      },
+      "V*Bench": {
+        "mean_percent": 72.07678883071553,
+        "sample_sd_percent": 0.7997514301842675,
+        "per_seed_percent": [
+          72.77486910994764,
+          72.25130890052355,
+          71.20418848167539
+        ]
+      },
+      "MMBench": {
+        "mean_percent": 92.8337521894753,
+        "sample_sd_percent": 0.08649620509938348,
+        "per_seed_percent": [
+          92.73474982864977,
+          92.89467671921408,
+          92.87183002056203
+        ]
+      }
+    }
+  },
+  "pe_system_benchmark": {
+    "schema_version": 1,
+    "scope": "projector positional-encoding module only; not end-to-end VLM",
+    "device": "NVIDIA GeForce RTX 4090",
+    "torch_version": "2.3.0+cu121",
+    "cuda_version": "12.1",
+    "dtype": "torch.bfloat16",
+    "warmup": 10,
+    "repeats": 30,
+    "methods": {
+      "A-learned-grid": {
+        "parameter_count": 2612736,
+        "parameter_bytes_at_runtime_dtype": 5225472,
+        "parameter_bytes_fp32_checkpoint": 10450944,
+        "grids": [
+          {
+            "h": 27,
+            "w": 27,
+            "tokens": 729,
+            "median_latency_ms": 0.09932799637317657,
+            "mean_latency_ms": 0.11080106695493062,
+            "sample_sd_latency_ms": 0.03512788566083597,
+            "incremental_peak_memory_bytes": 10450944,
+            "output_bytes": 5225472,
+            "repeats": 30
+          },
+          {
+            "h": 54,
+            "w": 54,
+            "tokens": 2916,
+            "median_latency_ms": 0.16998399794101715,
+            "mean_latency_ms": 0.17649813493092856,
+            "sample_sd_latency_ms": 0.020685267486589255,
+            "incremental_peak_memory_bytes": 26196992,
+            "output_bytes": 20901888,
+            "repeats": 30
+          },
+          {
+            "h": 108,
+            "w": 108,
+            "tokens": 11664,
+            "median_latency_ms": 0.44172799587249756,
+            "mean_latency_ms": 0.4431402673323949,
+            "sample_sd_latency_ms": 0.0077464538243305564,
+            "incremental_peak_memory_bytes": 89111552,
+            "output_bytes": 83607552,
+            "repeats": 30
+          }
+        ]
+      },
+      "C-cartesian-fourier": {
+        "parameter_count": 462336,
+        "parameter_bytes_at_runtime_dtype": 924672,
+        "parameter_bytes_fp32_checkpoint": 1849344,
+        "grids": [
+          {
+            "h": 27,
+            "w": 27,
+            "tokens": 729,
+            "median_latency_ms": 0.2303519994020462,
+            "mean_latency_ms": 0.2662400007247925,
+            "sample_sd_latency_ms": 0.07678885733026018,
+            "incremental_peak_memory_bytes": 6464000,
+            "output_bytes": 5225472,
+            "repeats": 30
+          },
+          {
+            "h": 54,
+            "w": 54,
+            "tokens": 2916,
+            "median_latency_ms": 0.5140479803085327,
+            "mean_latency_ms": 0.4694271981716156,
+            "sample_sd_latency_ms": 0.1402772631940095,
+            "incremental_peak_memory_bytes": 22778368,
+            "output_bytes": 20901888,
+            "repeats": 30
+          },
+          {
+            "h": 108,
+            "w": 108,
+            "tokens": 11664,
+            "median_latency_ms": 0.32307200133800507,
+            "mean_latency_ms": 0.4133834679921468,
+            "sample_sd_latency_ms": 0.1696249634279842,
+            "incremental_peak_memory_bytes": 87967744,
+            "output_bytes": 83607552,
+            "repeats": 30
+          }
+        ]
+      },
+      "E-logretina": {
+        "parameter_count": 462336,
+        "parameter_bytes_at_runtime_dtype": 924672,
+        "parameter_bytes_fp32_checkpoint": 1849344,
+        "grids": [
+          {
+            "h": 27,
+            "w": 27,
+            "tokens": 729,
+            "median_latency_ms": 0.3606079965829849,
+            "mean_latency_ms": 0.3684959997733434,
+            "sample_sd_latency_ms": 0.029053394471433812,
+            "incremental_peak_memory_bytes": 6464000,
+            "output_bytes": 5225472,
+            "repeats": 30
+          },
+          {
+            "h": 54,
+            "w": 54,
+            "tokens": 2916,
+            "median_latency_ms": 0.36478400230407715,
+            "mean_latency_ms": 0.37125226656595867,
+            "sample_sd_latency_ms": 0.01708912787634482,
+            "incremental_peak_memory_bytes": 22778368,
+            "output_bytes": 20901888,
+            "repeats": 30
+          },
+          {
+            "h": 108,
+            "w": 108,
+            "tokens": 11664,
+            "median_latency_ms": 0.42905598878860474,
+            "mean_latency_ms": 0.4375594665606817,
+            "sample_sd_latency_ms": 0.02906492469489243,
+            "incremental_peak_memory_bytes": 87967744,
+            "output_bytes": 83607552,
+            "repeats": 30
+          }
+        ]
+      },
+      "F-uniform-polar": {
+        "parameter_count": 462336,
+        "parameter_bytes_at_runtime_dtype": 924672,
+        "parameter_bytes_fp32_checkpoint": 1849344,
+        "grids": [
+          {
+            "h": 27,
+            "w": 27,
+            "tokens": 729,
+            "median_latency_ms": 0.2842240035533905,
+            "mean_latency_ms": 0.29046080162127813,
+            "sample_sd_latency_ms": 0.027888812596147575,
+            "incremental_peak_memory_bytes": 6469632,
+            "output_bytes": 5225472,
+            "repeats": 30
+          },
+          {
+            "h": 54,
+            "w": 54,
+            "tokens": 2916,
+            "median_latency_ms": 0.3056640028953552,
+            "mean_latency_ms": 0.3136938671271006,
+            "sample_sd_latency_ms": 0.02852593312261133,
+            "incremental_peak_memory_bytes": 22797824,
+            "output_bytes": 20901888,
+            "repeats": 30
+          },
+          {
+            "h": 108,
+            "w": 108,
+            "tokens": 11664,
+            "median_latency_ms": 0.3558399975299835,
+            "mean_latency_ms": 0.36260480086008706,
+            "sample_sd_latency_ms": 0.020025701562413612,
+            "incremental_peak_memory_bytes": 88039424,
+            "output_bytes": 83607552,
+            "repeats": 30
+          }
+        ]
+      }
+    }
+  }
+}

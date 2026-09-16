@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "generated_utc": "2026-09-12T13:39:26.556260+00:00",
+  "protocol": "a-zero-init-matched312-v1",
+  "variants": {
+    "A0-r1512": {
+      "per_seed": {
+        "42": {
+          "source": "runs/eval/a-zero-init-matched312-v1/A0-r1512-seed42",
+          "scores_percent": {
+            "ChartQA": 85.56,
+            "DocVQA": 90.4036765429873,
+            "TextVQA": 77.53400000000038,
+            "InfoVQA": 59.981666989773686,
+            "OCRBench": 69.6,
+            "MathVista": 64.4,
+            "GQA": 66.91047861345206,
+            "POPE": 88.53333333333333,
+            "V*Bench": 72.25130890052355,
+            "MMBench": 92.84898332190998
+          },
+          "ocr5_mean_percent": 76.61586870655228,
+          "all10_mean_percent": 76.80234477019803
+        },
+        "1234": {
+          "source": "runs/eval/a-zero-init-matched312-v1/A0-r1512-seed1234",
+          "scores_percent": {
+            "ChartQA": 86.2,
+            "DocVQA": 90.22264370329273,
+            "TextVQA": 77.51400000000038,
+            "InfoVQA": 59.581850439001805,
+            "OCRBench": 70.89999999999999,
+            "MathVista": 64.1,
+            "GQA": 67.06153601526475,
+            "POPE": 88.63333333333333,
+            "V*Bench": 71.20418848167539,
+            "MMBench": 92.43774274617319
+          },
+          "ocr5_mean_percent": 76.88369882845898,
+          "all10_mean_percent": 76.78552947187416
+        },
+        "2024": {
+          "source": "runs/eval/a-zero-init-matched312-v1/A0-r1512-seed2024",
+          "scores_percent": {
+            "ChartQA": 86.32,
+            "DocVQA": 90.20695836857604,
+            "TextVQA": 77.84400000000036,
+            "InfoVQA": 59.625193733626745,
+            "OCRBench": 71.0,
+            "MathVista": 65.3,
+            "GQA": 67.14899030052473,
+            "POPE": 88.53333333333333,
+            "V*Bench": 72.25130890052355,
+            "MMBench": 92.84898332190998
+          },
+          "ocr5_mean_percent": 76.99923042044063,
+          "all10_mean_percent": 77.10787679584948
+        }
+      },
+      "ocr5_mean_percent": 76.8329326518173,
+      "ocr5_sample_sd": 0.19665821731360184,
+      "all10_mean_percent": 76.89858367930722,
+      "all10_sample_sd": 0.1814480505224784
+    }
+  }
+}

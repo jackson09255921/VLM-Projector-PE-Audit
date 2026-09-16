@@ -1,0 +1,44 @@
+textvqa:
+  _target_: llava.data.TextVQADataset
+  val_data_path: ${oc.env:DATA_ROOT}/eval/textvqa/val.jsonl
+  val_answer_path: ${oc.env:DATA_ROOT}/eval/textvqa/answer.jsonl
+  image_dir: ${oc.env:DATA_ROOT}/eval/textvqa/images
+chartqa:
+  _target_: llava.data.TextVQADataset
+  data_path: ${oc.env:DATA_ROOT}/eval/chartqa/test.jsonl
+  image_dir: ${oc.env:DATA_ROOT}/eval/chartqa/images
+docvqa:
+  _target_: llava.data.DocVQADataset
+  data_path: ${oc.env:DATA_ROOT}/eval/docvqa/docvqa.jsonl
+  image_dir: ${oc.env:DATA_ROOT}/eval/docvqa/images
+  answer_path: ${oc.env:DATA_ROOT}/eval/docvqa/docvqa.jsonl
+infographicvqa:
+  _target_: llava.data.InfographicVQADataset
+  data_path: ${oc.env:DATA_ROOT}/eval/docvqa/infographicvqa.jsonl
+  image_dir: ${oc.env:DATA_ROOT}/eval/docvqa/images
+  answer_path: ${oc.env:DATA_ROOT}/eval/docvqa/infographicvqa.jsonl
+mathvista:
+  _target_: llava.data.MathVQADataset
+  testmini_data_path: ${oc.env:DATA_ROOT}/eval/mathvista/mathvista_testmini.jsonl
+ocrbench:
+  _target_: llava.data.OCRBenchDataset
+  data_path: ${oc.env:DATA_ROOT}/eval/ocrbench/ocrbench.jsonl
+  image_dir: ${oc.env:DATA_ROOT}/eval/ocrbench/images
+  answer_path: ${oc.env:DATA_ROOT}/eval/ocrbench/ocrbench.jsonl
+gqa:
+  _target_: llava.data.TextVQADataset
+  data_path: ${oc.env:DATA_ROOT}/eval/gqa/testdev_balanced.jsonl
+  image_dir: ${oc.env:DATA_ROOT}/eval/gqa/images
+pope:
+  _target_: llava.data.TextVQADataset
+  data_path: ${oc.env:DATA_ROOT}/eval/pope/test.jsonl
+  image_dir: ${oc.env:DATA_ROOT}/eval/pope/images
+vstar:
+  _target_: llava.data.TextVQADataset
+  data_path: ${oc.env:DATA_ROOT}/eval/vstar/test.jsonl
+  image_dir: ${oc.env:DATA_ROOT}/eval/vstar/images
+mmbench:
+  _target_: llava.data.TextVQADataset
+  data_path: ${oc.env:DATA_ROOT}/eval/mmbench/test.jsonl
+  image_dir: ${oc.env:DATA_ROOT}/eval/mmbench/images
+

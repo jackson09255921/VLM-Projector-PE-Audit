@@ -1,0 +1,5 @@
+# The numerical audit uses only the Python standard library.
+# These packages are needed for the PE implementation and smoke test.
+torch==2.3.0
+einops==0.6.1
+

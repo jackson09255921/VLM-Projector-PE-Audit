@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-09-16T00:00:00Z",
+  "scope": "compact paper provenance; raw benchmark generations and model checkpoints are intentionally excluded",
+  "primary_runs": {
+    "count": 15,
+    "methods": ["N", "A", "C", "E", "F"],
+    "seeds": [42, 1234, 2024],
+    "optimizer_step": 312,
+    "scheduler_horizon": 312,
+    "final_learning_rate": 0.0,
+    "observed_runtime_hours": {"minimum": 10.63, "maximum": 10.71}
+  },
+  "initialization_control_runs": {
+    "count": 3,
+    "method": "A0",
+    "seeds": [42, 1234, 2024],
+    "optimizer_step": 312,
+    "scheduler_horizon": 312,
+    "final_learning_rate": 0.0
+  },
+  "evaluation_identity": {
+    "statement": "All 15 primary runs and 3 A0 controls used identical ordered examples for each benchmark; hashes exclude prediction fields.",
+    "signatures": {
+      "ChartQA": {"examples": 2500, "sha256": "2c1f5d3fcc4be9adca91716b4aea2a2cd0eee6ff2f0e10da615b8cc28ca71f67"},
+      "DocVQA": {"examples": 5349, "sha256": "608937784f4196439f4b5b0d274456c6de01406ba01fc6af57596d8034568c87"},
+      "TextVQA": {"examples": 5000, "sha256": "0bff73ae26a35518463ac02eae496e5b8af4e1b31672140d37dd6f09e2f0b4d4"},
+      "InfoVQA": {"examples": 2801, "sha256": "15becf95460e7c04a4aaebe508e11ac31444e869fdfc53f9fcf31a0b4757aa81"},
+      "OCRBench": {"examples": 1000, "sha256": "5d432cc9e81a5e3d4e44793202e2f8d8f54b76282b23d797f31e13c244837b2a"},
+      "MathVista": {"examples": 1000, "sha256": "3e9b70538fa4a5217ad7e18a1b4e5bcc562a38402a5f0cd9effbad597c054af5"},
+      "GQA": {"examples": 12578, "sha256": "f6f510939b1621f9c7506dce18c8979313242d7104024694a12d6b1a4d43ee44"},
+      "POPE": {"examples": 3000, "sha256": "d55c680222aec29a14a350673d3ee012e29c7e80fdb1bbd29340f1d86555ad28"},
+      "V*Bench": {"examples": 191, "sha256": "5723fff30021a1722d098cf5c7a17a8c5b8058badaaa16aa7dcd37932488098e"},
+      "MMBench": {"examples": 4377, "sha256": "28b58c94d1fca9d05a85cad93765be8d5e18d9e222ede20198cb0c789fc3bae4"}
+    }
+  },
+  "source_sha256": {
+    "src/projector_pe/positional_embeddings.py": "78ad7d66c58f2756311658597e80bb2a1736e5e72acabb298ad7d900b8ae4372",
+    "src/vila_overlay/llava/model/multimodal_projector/positional_embeddings.py": "78ad7d66c58f2756311658597e80bb2a1736e5e72acabb298ad7d900b8ae4372",
+    "src/vila_overlay/llava/model/multimodal_projector/base_projector.py": "49f05f7d214b2eb28e4e75e6c480d76554b3da2857281b4159a124232ac43091",
+    "src/vila_overlay/llava/model/multimodal_projector/builder.py": "a8a3aec01142e8b975f3ebb1f15cce4d95104498ad5fd6313dcbe043ea571656",
+    "src/vila_overlay/llava/model/llava_arch.py": "aa373a34aa7855f5c2afbd7ec543521c3866396365df58236564bed095a1187b",
+    "src/vila_overlay/llava/model/builder.py": "eca10a6a080cdb548c124b12571790f6bf479ea68a333274102dae5803435ed0",
+    "src/vila_overlay/llava/model/configuration_llava.py": "3401fb157609cc1c566cf2569ab5d2395a160f154a4547f7a351be789758e961",
+    "src/vila_overlay/llava/train/args.py": "3b81bc8498a1b2919f48e48e221dab2b6b217f0aebd8f99c6cfcd420b908ad48",
+    "src/vila_overlay/llava/train/train.py": "ae5586019500ed78f2c4ae2375dda6c4a6314fb00260e713fe51b5f6aa053c34",
+    "src/vila_overlay/llava/data/builder.py": "1488c47479e5d431fa84cb5d6ab19149415eda8671e136912125f98a8e89421c",
+    "src/vila_overlay/llava/data/datasets_mixture.py": "991cd876966636af6d3f38f848c1936fe15975dcf3ceeee2673779ac5f5010e7",
+    "configs/train/matched312.json": "42d42bc00ba51a3b41302047e09fa1017a5899b45fa4615a7343e80e18f4b12a",
+    "configs/eval/all10.json": "b8850c309fa9df177371332d1bf6339bf7fe700edcb1f2af469329a88590dcf5",
+    "configs/eval/datasets.example.yaml": "69b79b93bedb00a469b1254bc6bf7e0e7aff906e712fe356dacbca6e66791fd9",
+    "scripts/train.sh": "b81eb55002899d985b807d86ff26aac6e1bf6fd4108579454ea3173740d0336c",
+    "scripts/evaluate.sh": "e18a57fcf496edd81707eff9ae0d132163c45a4b57f449bfc8bb1ba7f62fda6c",
+    "results/sources/N.json": "f10632bb9be8799afd7d35145819ecc0988e7bd90f26a5638433bca418190d5e",
+    "results/sources/A.json": "6a88b4fa4448a12816de5caf8c138faa6613ff0a2fcb010f443eedea371c0235",
+    "results/sources/A0.json": "db8243b2caec8572887bc869bf1ddd0ff6ab36e0863888952d209b161fcded21",
+    "results/sources/CEF.json": "febf43665f1a6f8ee8be3d107d4d2f41c842b4528ea8d5a690025ae3307b2a8f",
+    "results/scheduler_control.json": "2e30df860f19a9449bf9384e0721a1e88ddf6da95bf4ecf2d5866150c62b8f35",
+    "paper/icassp2027.pdf": "2ed5d587f6c68ab9cf28d0ff31f9c7664a198befe9ab49c6c6ab638c47fb9c3e"
+  }
+}

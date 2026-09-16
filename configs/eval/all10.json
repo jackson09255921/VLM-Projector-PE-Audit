@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "decoding": {"do_sample": false},
+  "benchmarks": {
+    "ChartQA": {"split": "test", "metric": "normalized exact/numeric-tolerance accuracy", "examples": 2500, "max_new_tokens": 32},
+    "DocVQA": {"split": "repository evaluation file", "metric": "ANLS", "examples": 5349, "max_new_tokens": 64},
+    "TextVQA": {"split": "validation", "metric": "TextVQA accuracy", "examples": 5000, "max_new_tokens": 16},
+    "InfoVQA": {"split": "repository evaluation file", "metric": "ANLS", "examples": 2801, "max_new_tokens": 64},
+    "OCRBench": {"split": "local OCRBench set", "metric": "normalized STVQA-style accuracy", "examples": 1000, "max_new_tokens": 32},
+    "MathVista": {"split": "testmini", "metric": "accuracy", "examples": 1000, "max_new_tokens": 128},
+    "GQA": {"split": "balanced test-dev", "metric": "exact-answer accuracy", "examples": 12578, "max_new_tokens": 16},
+    "POPE": {"split": "repository test file", "metric": "yes/no accuracy", "examples": 3000, "max_new_tokens": 8},
+    "V*Bench": {"split": "repository test file", "metric": "accuracy", "examples": 191, "max_new_tokens": 8},
+    "MMBench": {"split": "repository test file", "metric": "multiple-choice accuracy", "examples": 4377, "max_new_tokens": 8}
+  },
+  "aggregation": {
+    "OCR-5": ["ChartQA", "DocVQA", "TextVQA", "InfoVQA", "OCRBench"],
+    "All-10": ["ChartQA", "DocVQA", "TextVQA", "InfoVQA", "OCRBench", "MathVista", "GQA", "POPE", "V*Bench", "MMBench"],
+    "within_seed": "unweighted arithmetic mean of percentage scores",
+    "across_seeds": "mean and sample standard deviation over seeds 42, 1234, and 2024"
+  }
+}
+

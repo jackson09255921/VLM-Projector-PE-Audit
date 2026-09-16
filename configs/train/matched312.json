@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "protocol_id": "matched312-v2",
+  "base_model": "nvidia/VILA-HD-8B-PS3-1.5K-SigLIP2",
+  "vision_tower": "nvidia/PS3_Lang-1.5K-SigLIP2",
+  "training_mixture": {
+    "chartqa_train": 12000,
+    "docvqa_train": 12000,
+    "shareGPT4V": 25000,
+    "svit_conversation": 12000,
+    "svit_complex_reasoning": 12000,
+    "tulu": 8000
+  },
+  "budget": {
+    "optimizer_steps": 312,
+    "scheduler": "cosine",
+    "scheduler_horizon": 312,
+    "warmup_ratio": 0.03,
+    "micro_batch_size": 1,
+    "gradient_accumulation_steps": 64,
+    "effective_batch_size": 64
+  },
+  "optimization": {
+    "learning_rate": 0.00002,
+    "projector_learning_rate": 0.0002,
+    "weight_decay": 0.0,
+    "max_grad_norm": 1.0,
+    "optimizer": "paged_adamw_8bit",
+    "bits": 4,
+    "bf16": true
+  },
+  "adaptation": {
+    "lora_rank": 64,
+    "lora_alpha": 128,
+    "lora_dropout": 0.05,
+    "tune_language_model": true,
+    "tune_multimodal_projector": true,
+    "tune_vision_tower": false,
+    "tune_top_down_selection": false
+  },
+  "ps3": {
+    "high_resolution_size": 1512,
+    "selection_rounds": 3,
+    "dynamic_aspect_ratio": false
+  },
+  "seeds": [42, 1234, 2024],
+  "variants": {
+    "N": {"pos_embed_type": "none", "initialization": "no PE parameters"},
+    "A": {"pos_embed_type": "learned", "reinit_pos_embed": true, "initialization": "Normal(0, 0.02)"},
+    "A0": {"pos_embed_type": "learned", "zero_init_pos_embed": true, "initialization": "zeros"},
+    "C": {"pos_embed_type": "fourier", "num_frequencies": 32, "initialization": "zeros"},
+    "E": {"pos_embed_type": "log_retina", "alpha": 1.0, "num_frequencies": 32, "dynamic_center": true, "initialization": "zeros"},
+    "F": {"pos_embed_type": "polar", "num_frequencies": 32, "dynamic_center": false, "initialization": "zeros"}
+  }
+}
+
