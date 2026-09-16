@@ -19,6 +19,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 OCR5 = ("ChartQA", "DocVQA", "TextVQA", "InfoVQA", "OCRBench")
 SEEDS = ("42", "1234", "2024")
+UPSTREAM_COMMIT = "52a3735f7ac191113b5da44102b8e3a673b4dd32"
 
 
 def load(relative: str) -> dict:
@@ -103,6 +104,23 @@ def audit_results() -> None:
         raise AssertionError(f"F-A0 paired signs changed: {paired}")
     close("F-A0 paired mean", statistics.fmean(paired), 0.12116166211367658)
 
+    sparse = load("results/sources/sparse_centroid.json")
+    for name, reported in sparse["methods"].items():
+        recomputed = statistics.fmean(reported["scores_percent"].values())
+        close(f"{name} sparse All-10 mean", recomputed, reported["all10_mean_percent"])
+    close(
+        "fixed-origin sparse aggregate link",
+        sparse["methods"]["fixed_origin_log_polar"]["all10_mean_percent"],
+        aggregate["sparse_centroid_diagnostic"]["fixed_origin_log_polar"],
+        tolerance=1e-6,
+    )
+    close(
+        "dynamic-origin sparse aggregate link",
+        sparse["methods"]["dynamic_origin_log_polar"]["all10_mean_percent"],
+        aggregate["sparse_centroid_diagnostic"]["dynamic_origin_log_polar"],
+        tolerance=1e-6,
+    )
+
 
 def audit_scheduler() -> None:
     control = load("results/scheduler_control.json")
@@ -115,6 +133,10 @@ def audit_scheduler() -> None:
 
 def audit_provenance() -> None:
     manifest = load("provenance/manifest.json")
+    assert manifest["upstream"] == {
+        "repository": "https://github.com/NVlabs/VILA",
+        "commit": UPSTREAM_COMMIT,
+    }
     primary = manifest["primary_runs"]
     control = manifest["initialization_control_runs"]
     assert primary == {
@@ -137,6 +159,52 @@ def audit_provenance() -> None:
     print("PASS compact trainer-state and evaluation-identity provenance")
 
 
+def audit_protocol_mapping() -> None:
+    config = load("configs/train/matched312.json")
+    budget = config["budget"]
+    assert config["protocol_id"] == "matched312-v2"
+    assert config["seeds"] == [42, 1234, 2024]
+    assert budget == {
+        "optimizer_steps": 312,
+        "scheduler": "cosine",
+        "scheduler_horizon": 312,
+        "warmup_ratio": 0.03,
+        "micro_batch_size": 1,
+        "gradient_accumulation_steps": 64,
+        "effective_batch_size": 64,
+    }
+    expected_variants = {
+        "N": {"pos_embed_type": "none", "initialization": "no PE parameters"},
+        "A": {"pos_embed_type": "learned", "reinit_pos_embed": True, "initialization": "Normal(0, 0.02)"},
+        "A0": {"pos_embed_type": "learned", "zero_init_pos_embed": True, "initialization": "zeros"},
+        "C": {"pos_embed_type": "fourier", "num_frequencies": 32, "initialization": "zeros"},
+        "E": {"pos_embed_type": "log_retina", "alpha": 1.0, "num_frequencies": 32, "dynamic_center": True, "initialization": "zeros"},
+        "F": {"pos_embed_type": "polar", "num_frequencies": 32, "origin": "fixed by implementation", "initialization": "zeros"},
+    }
+    assert config["variants"] == expected_variants
+
+    train = (ROOT / "scripts/train.sh").read_text(encoding="utf-8")
+    required_tokens = (
+        "--max_steps 312",
+        "--per_device_train_batch_size 1 --gradient_accumulation_steps 64",
+        "--warmup_ratio 0.03 --lr_scheduler_type cosine",
+        "N) PE_ARGS=(--pos_embed_type none)",
+        "A) PE_ARGS=(--pos_embed_type learned --reinit_pos_embed True)",
+        "A0) PE_ARGS=(--pos_embed_type learned --zero_init_pos_embed True)",
+        "C) PE_ARGS=(--pos_embed_type fourier --pos_embed_num_freqs 32)",
+        "E) PE_ARGS=(--pos_embed_type log_retina --pos_embed_alpha 1.0 --pos_embed_num_freqs 32 --pos_embed_dynamic_center True)",
+        "F) PE_ARGS=(--pos_embed_type polar --pos_embed_num_freqs 32)",
+    )
+    missing = [token for token in required_tokens if token not in train]
+    if missing:
+        raise AssertionError(f"training script/config mapping failure: {missing}")
+
+    installer = (ROOT / "scripts/install_overlay.sh").read_text(encoding="utf-8")
+    if UPSTREAM_COMMIT not in installer:
+        raise AssertionError("installer does not pin the manifest upstream commit")
+    print("PASS canonical config, CLI mapping, and upstream revision pin")
+
+
 def audit_paper() -> None:
     tex = (ROOT / "paper/main.tex").read_text(encoding="utf-8")
     required = (
@@ -144,6 +212,10 @@ def audit_paper() -> None:
         "76.847$\\pm$0.123",
         "76.899$\\pm$0.181",
         "77.020$\\pm$0.072",
+        "76.570$\\pm$0.352",
+        "76.696$\\pm$0.044",
+        "76.759$\\pm$0.254",
+        "77.078$\\pm$0.140",
         "5.65$\\times$",
         "3.59-point",
         "span only 0.173 points",
@@ -151,6 +223,9 @@ def audit_paper() -> None:
     missing = [fragment for fragment in required if fragment not in tex]
     if missing:
         raise AssertionError(f"paper fragments missing: {missing}")
+    readme = (ROOT / "README.md").read_text(encoding="utf-8")
+    if UPSTREAM_COMMIT not in readme:
+        raise AssertionError("README does not identify the pinned upstream revision")
     print("PASS paper headline fragments")
 
 
@@ -183,6 +258,7 @@ def main() -> int:
     audit_results()
     audit_scheduler()
     audit_provenance()
+    audit_protocol_mapping()
     audit_paper()
     audit_release_hygiene()
     print("PASS fresh-clone ICASSP reproducibility audit")

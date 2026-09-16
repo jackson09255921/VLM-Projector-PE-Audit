@@ -25,6 +25,18 @@ fi
 [[ -n "$VILA_ROOT" ]] || { echo "VILA_ROOT is required" >&2; exit 2; }
 [[ "$DRY_RUN" == true || -n "$DATA_ROOT" ]] || { echo "DATA_ROOT is required" >&2; exit 2; }
 
+if [[ "$DRY_RUN" == false ]]; then
+    [[ -f "$VILA_ROOT/llava/train/train_mem.py" ]] || {
+        echo "VILA_ROOT does not contain llava/train/train_mem.py" >&2
+        exit 3
+    }
+    [[ -d "$DATA_ROOT" ]] || { echo "DATA_ROOT is not a directory" >&2; exit 3; }
+    [[ ! -e "$OUTPUT_DIR" ]] || {
+        echo "Refusing to overwrite an existing output: $OUTPUT_DIR" >&2
+        exit 3
+    }
+fi
+
 case "$VARIANT" in
     N) PE_ARGS=(--pos_embed_type none) ;;
     A) PE_ARGS=(--pos_embed_type learned --reinit_pos_embed True) ;;
@@ -76,4 +88,3 @@ export DATA_ROOT
 export WANDB_MODE="${WANDB_MODE:-offline}"
 cd "$VILA_ROOT"
 exec "${COMMAND[@]}"
-

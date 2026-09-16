@@ -129,8 +129,20 @@ obtained under their original licenses:
 - `nvidia/VILA-HD-8B-PS3-1.5K-SigLIP2`
 - `nvidia/PS3_Lang-1.5K-SigLIP2`
 
-The exact modified VILA files are under `src/vila_overlay/`. Back up a
-compatible checkout before applying them:
+The overlay is pinned to public NVIDIA VILA commit
+[`52a3735f7ac191113b5da44102b8e3a673b4dd32`](https://github.com/NVlabs/VILA/commit/52a3735f7ac191113b5da44102b8e3a673b4dd32).
+Prepare that exact base revision before installing the modified files:
+
+```bash
+git clone https://github.com/NVlabs/VILA.git
+cd VILA
+git checkout 52a3735f7ac191113b5da44102b8e3a673b4dd32
+cd /path/to/VLM-Projector-PE-Audit
+```
+
+The exact modified VILA files are under `src/vila_overlay/`. Back up the
+checkout before applying them; the installer refuses a different Git revision
+unless the user explicitly opts into an unverified compatibility path:
 
 ```bash
 export VILA_ROOT=/path/to/your/VILA-HD-checkout
@@ -208,4 +220,3 @@ checkpoints and datasets remain governed by their original licenses.
 - Kuo-Hui Yeh — National Yang Ming Chiao Tung University
 
 A formal citation entry will be added after a public paper record is available.
-

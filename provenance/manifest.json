@@ -2,6 +2,10 @@
   "schema_version": 1,
   "created_utc": "2026-09-16T00:00:00Z",
   "scope": "compact paper provenance; raw benchmark generations and model checkpoints are intentionally excluded",
+  "upstream": {
+    "repository": "https://github.com/NVlabs/VILA",
+    "commit": "52a3735f7ac191113b5da44102b8e3a673b4dd32"
+  },
   "primary_runs": {
     "count": 15,
     "methods": ["N", "A", "C", "E", "F"],
@@ -46,15 +50,17 @@
     "src/vila_overlay/llava/train/train.py": "ae5586019500ed78f2c4ae2375dda6c4a6314fb00260e713fe51b5f6aa053c34",
     "src/vila_overlay/llava/data/builder.py": "1488c47479e5d431fa84cb5d6ab19149415eda8671e136912125f98a8e89421c",
     "src/vila_overlay/llava/data/datasets_mixture.py": "991cd876966636af6d3f38f848c1936fe15975dcf3ceeee2673779ac5f5010e7",
-    "configs/train/matched312.json": "42d42bc00ba51a3b41302047e09fa1017a5899b45fa4615a7343e80e18f4b12a",
+    "configs/train/matched312.json": "a4f27ab46d06ee40cbdd73de334d1036a5b4707f83646064f4b74a1163c5eb9f",
     "configs/eval/all10.json": "b8850c309fa9df177371332d1bf6339bf7fe700edcb1f2af469329a88590dcf5",
     "configs/eval/datasets.example.yaml": "69b79b93bedb00a469b1254bc6bf7e0e7aff906e712fe356dacbca6e66791fd9",
-    "scripts/train.sh": "b81eb55002899d985b807d86ff26aac6e1bf6fd4108579454ea3173740d0336c",
+    "scripts/train.sh": "16db64d3cbe24423d119c2c15b7400fdaf801c33875db49761b16b9725f51e46",
     "scripts/evaluate.sh": "e18a57fcf496edd81707eff9ae0d132163c45a4b57f449bfc8bb1ba7f62fda6c",
+    "scripts/install_overlay.sh": "204cb65f435a2557ce590bbe26fa5862580cd7d5b55387f0170b5a11523a3c69",
     "results/sources/N.json": "f10632bb9be8799afd7d35145819ecc0988e7bd90f26a5638433bca418190d5e",
     "results/sources/A.json": "6a88b4fa4448a12816de5caf8c138faa6613ff0a2fcb010f443eedea371c0235",
     "results/sources/A0.json": "db8243b2caec8572887bc869bf1ddd0ff6ab36e0863888952d209b161fcded21",
     "results/sources/CEF.json": "febf43665f1a6f8ee8be3d107d4d2f41c842b4528ea8d5a690025ae3307b2a8f",
+    "results/sources/sparse_centroid.json": "659382bb23457577b3134388e561d46e0913aa882bffceeda878e6ec14dc5129",
     "results/scheduler_control.json": "2e30df860f19a9449bf9384e0721a1e88ddf6da95bf4ecf2d5866150c62b8f35",
     "paper/icassp2027.pdf": "2ed5d587f6c68ab9cf28d0ff31f9c7664a198befe9ab49c6c6ab638c47fb9c3e"
   }

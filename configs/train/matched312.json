@@ -50,7 +50,6 @@
     "A0": {"pos_embed_type": "learned", "zero_init_pos_embed": true, "initialization": "zeros"},
     "C": {"pos_embed_type": "fourier", "num_frequencies": 32, "initialization": "zeros"},
     "E": {"pos_embed_type": "log_retina", "alpha": 1.0, "num_frequencies": 32, "dynamic_center": true, "initialization": "zeros"},
-    "F": {"pos_embed_type": "polar", "num_frequencies": 32, "dynamic_center": false, "initialization": "zeros"}
+    "F": {"pos_embed_type": "polar", "num_frequencies": 32, "origin": "fixed by implementation", "initialization": "zeros"}
   }
 }
-
